@@ -76,7 +76,7 @@ public class AuthServiceImpl implements UserDetailsService {
         Optional<User> optionalUser = userRepository.findByEmailAndEmailCode(email, emailCode);
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
-            user.setEnabled(true);
+            user.setEnabled(true);              // verify qilganda enabled true ga o'zgardi
             user.setEmailCode(null);
             userRepository.save(user);
             return new ApiResponse("Akkaunt tasdiqlandi", true);
